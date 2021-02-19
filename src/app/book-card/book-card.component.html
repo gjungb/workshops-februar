@@ -1,0 +1,11 @@
+<!-- Emmet h1+h2+p -->
+<h1 [style]="customStyle">
+    {{ content.title }}
+</h1>
+<h2>
+    {{ content.author }}
+</h2>
+<p>
+    {{ content.abstract }}
+</p>
+<p><button (click)="handleDetailClick($event)">Details</button></p>
