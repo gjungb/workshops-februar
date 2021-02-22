@@ -20,6 +20,8 @@ export class BookCardComponent implements OnInit {
     backgroundColor: '#fcd'
   };
 
+  start = 0;
+
   constructor() { }
 
   ngOnInit(): void {

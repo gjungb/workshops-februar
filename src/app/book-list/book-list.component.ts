@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../model/book';
+import { BookApiService } from '../shared/book-api.service';
 
 @Component({
   selector: 'wsf-book-list',
@@ -7,21 +8,19 @@ import { Book } from '../model/book';
   styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit {
-  books: Array<Book> = [
-    {
-      title: 'Moby Dick',
-      author: 'Herman Melville',
-    },
-    {
-      title: 'Harry Potter und der Feuerkelch',
-      author: 'J.K. Rowling',
-      abstract: 'Lorem ipsum...',
-    },
-  ];
+  books: Array<Book>;
 
-  constructor() {}
+  term = '';
 
-  ngOnInit(): void {}
+  constructor(private readonly api: BookApiService) {}
+
+  ngOnInit(): void {
+    this.books = this.api.loadAll();
+  }
+
+  updateSearchTerm(evt: Event): void {
+    this.term = (evt.target as HTMLInputElement).value;
+  }
 
   log(evt: Book): void {
     console.log(evt.title);

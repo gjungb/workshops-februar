@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookListComponent } from './book-list/book-list.component';
+import { BookFilterPipe } from './shared/book-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookCardComponent,
-    BookListComponent
+    BookListComponent,
+    BookFilterPipe
   ],
   imports: [
     BrowserModule,
