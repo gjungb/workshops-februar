@@ -1,3 +1,5 @@
 <h1>Willkommen in {{ title }}</h1>
 
-<wsf-book-list></wsf-book-list>
+<button (click)="visible = !visible">Toggle</button>
+
+<wsf-book-list *ngIf="visible"></wsf-book-list>

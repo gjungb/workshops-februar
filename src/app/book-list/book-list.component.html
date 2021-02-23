@@ -1,11 +1,30 @@
 <p>book-list works!</p>
 
-<input (input)="updateSearchTerm($event)" type="search">
+<h2>
+    {{ ticker$ | async }}
+</h2>
 
-<ol>
-    <li *ngFor="let book of books | wsfBookFilter: term">
-        <wsf-book-card [wsfBook]="book" (detailClick)="log($event)"></wsf-book-card>
-    </li>
-</ol>
+<ng-template #loader>
+    <p>
+        Bin am Laden ...
+    </p>
+</ng-template>
 
-<pre><code>{{ books | json }}</code></pre>
+<ng-container *ngIf="books$ | async as things; else loader">
+
+    <h3>
+        Eine Liste mit {{ things.length }} Büchern.
+    </h3>
+
+    <input (input)="updateSearchTerm($event)" type="search" id="search">
+    <label for="search">Suchbegriff</label>
+
+    <ol>
+        <li *ngFor="let book of things | wsfBookFilter: term">
+            <wsf-book-card [wsfBook]="book" (detailClick)="log($event)"></wsf-book-card>
+        </li>
+    </ol>
+
+    <pre><code>{{ books | json }}</code></pre>
+
+</ng-container>
