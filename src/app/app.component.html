@@ -1,5 +1,9 @@
 <h1>Willkommen in {{ title }}</h1>
 
-<button (click)="visible = !visible">Toggle</button>
+<router-outlet></router-outlet>
 
-<wsf-book-list *ngIf="visible"></wsf-book-list>
+<ng-container *ngIf="false">
+    <button (click)="visible = !visible">Toggle</button>
+
+    <wsf-book-list *ngIf="visible"></wsf-book-list>
+</ng-container>

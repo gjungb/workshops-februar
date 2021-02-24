@@ -3,6 +3,10 @@
  */
 export interface Book {
   /**
+   * Die ISBN
+   */
+  isbn?: string;
+  /**
    * Der Titel
    */
   title: string;

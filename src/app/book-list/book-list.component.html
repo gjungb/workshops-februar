@@ -16,11 +16,11 @@
         Eine Liste mit {{ things.length }} Büchern.
     </h3>
 
-    <input (input)="updateSearchTerm($event)" type="search" id="search">
-    <label for="search">Suchbegriff</label>
+    <wsf-search-form></wsf-search-form>
 
     <ol>
         <li *ngFor="let book of things | wsfBookFilter: term">
+            <p><a [routerLink]="book.isbn">Details</a></p>
             <wsf-book-card [wsfBook]="book" (detailClick)="log($event)"></wsf-book-card>
         </li>
     </ol>

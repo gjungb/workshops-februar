@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { BookApiService } from './book-api.service';
 
-fdescribe('BookApiService', () => {
+describe('BookApiService', () => {
   let service: BookApiService;
 
   beforeEach(() => {

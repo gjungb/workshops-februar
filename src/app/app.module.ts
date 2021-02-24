@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookFilterPipe } from './shared/book-filter.pipe';
+import { SearchFormComponent } from './search-form/search-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,8 +17,16 @@ import { BookFilterPipe } from './shared/book-filter.pipe';
     BookCardComponent,
     BookListComponent,
     BookFilterPipe,
+    SearchFormComponent,
+    BookDetailComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

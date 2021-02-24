@@ -1,0 +1,30 @@
+<p>search-form works!</p>
+
+<form [formGroup]="form" (ngSubmit)="updateSearchTerm(form.value)">
+    <input formControlName="term" type="search" id="search">
+    <label for="search">Suchbegriff</label>
+
+    <p *ngIf="form.get('term').hasError('required')">
+        Bitte ausfüllen!
+    </p>
+
+    <button type="submit" [disabled]="form.invalid">
+        Absenden
+    </button>
+</form>
+
+<form #myForm="ngForm" (ngSubmit)="updateSearchTerm(myForm.value)">
+    <input #myInput="ngModel" [(ngModel)]="term" [ngModelOptions]="{updateOn: 'blur'}" required [minlength]="min" name="term" type="search" id="search">
+    <label for="search">Suchbegriff</label>
+
+    <p *ngIf="myInput.hasError('required')">
+        Bitte ausfüllen!
+    </p>
+
+    <button type="submit" [disabled]="myForm.invalid">
+        Absenden
+    </button>
+
+</form>
+
+<pre><code>{{ term }}</code></pre>
